@@ -1,11 +1,11 @@
 import numpy as np
 
-def simulate_covert_channel(distribution='uniform', m=16, i=10, B=20, trials=500):
+def simulate_covert_channel(distribution='uniform', m=16, i=10, B=20, iteration=500):
     underflow_count = 0
     overflow_count = 0
     success_count = 0
 
-    for _ in range(trials):
+    for _ in range(iteration):
         buffer_size = 0
         buffer_limit = B
 
@@ -71,10 +71,10 @@ def simulate_covert_channel(distribution='uniform', m=16, i=10, B=20, trials=500
             success_count += 1
 
 
-    print(f"Results after {trials} trials:")
-    print(f"Underflow Probability: {underflow_count / trials:.3f}")
-    print(f"Overflow Probability: {overflow_count / trials:.3f}")
-    print(f"Success Probability: {success_count / trials:.3f}")
+    print(f"Results after {iteration} iterations:")
+    print(f"Underflow Probability: {underflow_count / iteration:.3f}")
+    print(f"Overflow Probability: {overflow_count / iteration:.3f}")
+    print(f"Success Probability: {success_count / iteration:.3f}")
 
 if __name__ == '__main__':
     dist = input("Choose distribution (uniform or exponential): ").strip().lower()
