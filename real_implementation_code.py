@@ -56,10 +56,10 @@ def simulate_covert_channel(distribution='uniform', m=16, i=10, B=20, iteration=
                     failed = True              # overflow
                     overflow_count += 1
                     break
-            if failed:
+            if failed:                         # if underflow, end this iteration
                 break
 
-            # Transmit a packet
+            # Overflow?
             if buffer_size > 0:                # tansmit a packet, or we have to have at least one buffer to tansimit a packet
                 buffer_size -= 1
             else:                              # if we don't
